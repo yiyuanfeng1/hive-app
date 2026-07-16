@@ -1,0 +1,10 @@
+{
+  "name": "hive-auth-starter",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Local authentication backend for Hive",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  }
+}
