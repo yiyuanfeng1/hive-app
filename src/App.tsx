@@ -1150,7 +1150,7 @@ function HomeScreen({
           >
             <Search size={17} color={GRAY} />
             <span className="flex-1 text-left text-[11px] text-gray-400 one-line">
-              Try searching “{searchSuggestion}”
+              {searchSuggestion}
             </span>
             <Mic size={17} color={GRAY} />
           </button>
