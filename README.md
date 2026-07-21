@@ -25,7 +25,7 @@ Hive is a verified student marketplace for discovering, buying, and selling seco
 
 ## How We Built It
 
-The frontend, backend, product design, and UX were developed by Yiquan Feng. The project combines the original Hive onboarding work with the marketplace interface and its persistent backend in one application.
+Yiquan Feng developed the frontend, UX, and product design. Yiyuan Feng developed the backend, APIs, database, and product design. Together, we combined the original Hive onboarding work with the marketplace interface and its persistent backend in one application.
 
 ## How We Used Codex and GPT-5.6
 
@@ -47,11 +47,11 @@ We made the final product, engineering, UX, and visual-design decisions while us
 
 Codex was used throughout the project as a hands-on coding collaborator. It accelerated the workflow by helping translate product requirements and mobile-screen designs into working React components, connect those components to the Node server, and test that the complete application still built correctly after each change.
 
-Yiquan Feng made the key product and design decisions: Hive should be a verified student marketplace, listings should respect the selected campus scope, users should control and review AI-generated listing drafts, and the interface should stay mobile-first with clear privacy and safety information. Yiquan also decided which features were real and data-backed, including listings, images, profiles, messages, saved items, search history, carts, and orders.
+Yiquan Feng led the frontend, UX, and product-design decisions: Hive should be a verified student marketplace, listings should respect the selected campus scope, users should control and review AI-generated listing drafts, and the interface should stay mobile-first with clear privacy and safety information. Yiyuan Feng led the backend implementation decisions that made the app data-backed, including listings, images, profiles, messages, saved items, search history, carts, and orders.
 
-On the engineering side, Codex helped accelerate implementation of persistent local storage, authenticated school-email onboarding, Resend email hooks, Gemini listing analysis, campus-aware filters, message read states, profile synchronization, and the responsive UI updates. It also helped diagnose integration issues such as frontend mock data appearing instead of stored user data, invalid configuration values, and mismatched screen state.
+On the engineering side, Yiyuan built the backend, database, and API connections for persistent local storage, authenticated school-email onboarding, Resend email hooks, Gemini listing analysis, campus-aware filters, message read states, and profile synchronization. Yiquan built and refined the responsive frontend screens and interaction flows. Codex accelerated this work by helping diagnose integration issues such as frontend mock data appearing instead of stored user data, invalid configuration values, and mismatched screen state.
 
-GPT-5.6 and Codex contributed to the final result by helping plan implementation, generate and refine code, identify bugs, and package the project into a runnable GitHub repository. They were tools in the development process—not replacements for product judgment: Yiquan reviewed the behavior and made the final decisions on the app's scope, user experience, visual direction, and marketplace rules.
+GPT-5.6 and Codex contributed to the final result by helping plan implementation, generate and refine code, identify bugs, and package the project into a runnable GitHub repository. They were tools in the development process—not replacements for our product judgment: Yiquan and Yiyuan made the final decisions on the app's scope, user experience, visual direction, backend behavior, database structure, APIs, and marketplace rules.
 
 ## Key Decisions
 
@@ -72,4 +72,5 @@ GPT-5.6 and Codex contributed to the final result by helping plan implementation
 
 ## Team
 
-- Yiquan Feng — Frontend, backend, product design, UX, database, and APIs
+- Yiquan Feng — Frontend, UX, and product design
+- Yiyuan Feng — Backend, product design, APIs, and database
