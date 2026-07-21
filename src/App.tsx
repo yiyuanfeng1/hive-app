@@ -945,7 +945,7 @@ function HomeScreen({
   onProduct: (p: Product) => void;
 }) {
   const [category, setCategory] = useState("All");
-  const [scope, setScope] = useState(`${user.school} ${user.campus}`);
+  const [scope, setScope] = useState(user.campus || user.school);
   const [scopeMode, setScopeMode] = useState<"my" | "nearby" | "nationwide" | "custom">("my");
   const [scopeOpen, setScopeOpen] = useState(false);
   const [custom, setCustom] = useState("");
@@ -1063,7 +1063,7 @@ function HomeScreen({
               <div className="absolute right-0 top-12 z-40 w-60 rounded-2xl bg-white border border-gray-100 shadow-xl p-2">
                 <button
                   onClick={() => {
-                    setScope(`${user.school} ${user.campus}`);
+                    setScope(user.campus || user.school);
                     setScopeMode("my");
                     setScopeOpen(false);
                   }}

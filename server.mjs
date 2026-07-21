@@ -42,6 +42,11 @@ function seedJudgeDemo() {
   const db = readDb();
   const judgeEmail = "judge@hive-demo.edu";
   const sellerEmail = "seller@hive-demo.edu";
+  const demoImages = {
+    "Campus Desk Lamp": "/demo/desk-lamp.png",
+    "Intro Biology Textbook": "/demo/biology-textbook.png",
+    "Study Chair": "/demo/study-chair.png",
+  };
   let changed = false;
   let seller = db.users.find((user) => user.email === sellerEmail);
 
@@ -71,14 +76,22 @@ function seedJudgeDemo() {
   }
 
   if (!db.listings.some((listing) => listing.demoSeed)) {
-    const image = (label, color) => `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><rect width="800" height="600" fill="${color}"/><circle cx="400" cy="240" r="110" fill="white" fill-opacity=".92"/><path d="M345 240h110M400 185v110" stroke="${color}" stroke-width="26" stroke-linecap="round"/><text x="400" y="470" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="38" font-weight="700">${label}</text></svg>`)}`;
     const now = new Date().toISOString();
     db.listings.push(
-      { id: newId(), demoSeed: true, sellerId: seller.id, seller: "Demo Seller", sellerAvatar: "", sellerRating: 5, title: "Campus Desk Lamp", description: "Fictional demo listing for evaluating the Hive marketplace.", price: 20, category: "Furniture & Home", condition: "Good", images: [image("Desk Lamp", "#4b5563")], status: "active", createdAt: now, location: "Demo Campus", school: "Demo University", campus: "Demo Campus" },
-      { id: newId(), demoSeed: true, sellerId: seller.id, seller: "Demo Seller", sellerAvatar: "", sellerRating: 5, title: "Intro Biology Textbook", description: "Fictional demo listing for evaluating search, saved items, and checkout.", price: 15, category: "School Supplies", condition: "Used", images: [image("Textbook", "#2563eb")], status: "active", createdAt: now, location: "Demo Campus", school: "Demo University", campus: "Demo Campus" },
-      { id: newId(), demoSeed: true, sellerId: seller.id, seller: "Demo Seller", sellerAvatar: "", sellerRating: 5, title: "Study Chair", description: "Fictional demo listing for evaluating a safe campus marketplace flow.", price: 25, category: "Furniture & Home", condition: "Good", images: [image("Study Chair", "#15803d")], status: "active", createdAt: now, location: "Demo Campus", school: "Demo University", campus: "Demo Campus" },
+      { id: newId(), demoSeed: true, sellerId: seller.id, seller: "Demo Seller", sellerAvatar: "", sellerRating: 5, title: "Campus Desk Lamp", description: "Fictional demo listing for evaluating the Hive marketplace.", price: 20, category: "Furniture & Home", condition: "Good", images: [demoImages["Campus Desk Lamp"]], status: "active", createdAt: now, location: "Demo Campus", school: "Demo University", campus: "Demo Campus" },
+      { id: newId(), demoSeed: true, sellerId: seller.id, seller: "Demo Seller", sellerAvatar: "", sellerRating: 5, title: "Intro Biology Textbook", description: "Fictional demo listing for evaluating search, saved items, and checkout.", price: 15, category: "School Supplies", condition: "Used", images: [demoImages["Intro Biology Textbook"]], status: "active", createdAt: now, location: "Demo Campus", school: "Demo University", campus: "Demo Campus" },
+      { id: newId(), demoSeed: true, sellerId: seller.id, seller: "Demo Seller", sellerAvatar: "", sellerRating: 5, title: "Study Chair", description: "Fictional demo listing for evaluating a safe campus marketplace flow.", price: 25, category: "Furniture & Home", condition: "Good", images: [demoImages["Study Chair"]], status: "active", createdAt: now, location: "Demo Campus", school: "Demo University", campus: "Demo Campus" },
     );
     changed = true;
+  }
+
+  // Refresh the public demo after an update while leaving every non-demo listing untouched.
+  for (const listing of db.listings) {
+    if (!listing.demoSeed || !demoImages[listing.title]) continue;
+    if (listing.images?.[0] !== demoImages[listing.title]) {
+      listing.images = [demoImages[listing.title]];
+      changed = true;
+    }
   }
 
   if (changed) writeDb(db);
