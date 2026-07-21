@@ -1,88 +1,65 @@
 # Hive
 
-Hive is a student marketplace prototype for buying, selling, messaging, and arranging campus transactions. It has a mobile-first interface with real local app data: accounts, listings, photos, messages, carts, profiles, search history, campus filtering, and orders are saved by the server.
+Hive is a verified student marketplace for discovering, buying, and selling secondhand items within university communities.
 
-## What works today
+## Features
 
-- School-email sign-up, verification, sign-in, sign-out, and password-reset flow
-- User profiles, profile photos, saved items, listings, carts, and orders
-- Listing photos, publishing, editing, selection-based deletion, and campus filters
-- Direct messages, unread-message counts, and read status when a recipient opens a conversation
-- Search over published listings and each user's real search history
-- Gemini-assisted listing drafts from an uploaded image; every suggestion stays editable before publishing
-- Checkout choices for campus meetup, delivery, card, Venmo, and pay-at-pickup
+- Verified student onboarding with school-email verification
+- Campus, nearby-campus, and nationwide marketplace search
+- Gemini AI-assisted listing creation from uploaded photos
+- Product listings, cart, and checkout flows
+- Messages, profiles, reviews, saved items, and search history
+- Persistent local storage for development data
+- Responsive, mobile-first interface
 
-> Card, Venmo, and delivery choices are currently prototype flows. No real payment is processed and no delivery service is booked yet.
+## How to Run
 
-## Run Hive on your Mac
+1. Install Node.js.
+2. Clone this repository.
+3. Run `npm install`.
+4. Copy `.env.example` to `.env` and add private email and Gemini keys if you want those features enabled.
+5. Run `npm start`.
+6. Open [http://localhost:4173](http://localhost:4173).
 
-1. Install a current version of Node.js.
-2. In this project folder, install the app's packages:
+`npm start` runs both the frontend and backend together. The local data file and `.env` stay private and are not uploaded to GitHub.
 
-   ```bash
-   npm install
-   ```
+## How We Built It
 
-3. Create your private settings file from the safe template:
+The frontend, backend, product design, and UX were developed by Yiquan Feng. The project combines the original Hive onboarding work with the marketplace interface and its persistent backend in one application.
 
-   ```bash
-   cp .env.example .env
-   ```
+## How We Used Codex and GPT-5.6
 
-4. Open `.env` and add your own private keys and sender information.
-5. Start the complete app:
+Codex and GPT-5.6 helped us:
 
-   ```bash
-   npm start
-   ```
+- Merge the original Hive onboarding code with the marketplace UI
+- Implement navigation and marketplace interactions
+- Build responsive product, cart, checkout, chat, and profile flows
+- Connect frontend screens to backend storage for listings, messages, profiles, and search
+- Diagnose layout, state-management, and data-flow issues
+- Iterate on accessibility, typography, spacing, and visual consistency
+- Review and package the final runnable application
 
-6. Open [http://localhost:4173](http://localhost:4173) in your browser.
+We made the final product, engineering, UX, and visual-design decisions while using Codex as our coding collaborator.
 
-`npm start` builds the React interface and starts the Hive server together.
+> The current in-app listing analysis uses Gemini as the server-side AI provider. It suggests a draft only; users review and edit every listing before publishing.
 
-## Private settings
+## Key Decisions
 
-The `.env` file is private and must never be committed or uploaded to GitHub. It may include:
+- Verified university accounts improve marketplace trust
+- Campus-specific inventory changes with the selected university
+- Newly created listings appear in both the seller profile and home feed
+- Reviews are separated from product listings
+- Mobile-first interaction and accessibility were prioritized
+- Private API keys remain server-only and are excluded from GitHub
 
-```text
-PORT=4173
-SESSION_SECRET=a-long-random-secret
-APP_URL=http://localhost:4173
+## Challenges
 
-RESEND_API_KEY=your_resend_key
-RESEND_FROM=Hive <a-verified-sender@your-domain.com>
+- Keeping frontend state synchronized across listings, profiles, messages, and search
+- Creating a cohesive experience across many marketplace flows
+- Integrating frontend design work with persistent backend behavior
+- Maintaining consistent responsive behavior
+- Preserving private development data while publishing the codebase safely
 
-GEMINI_API_KEY=your_gemini_key
-GEMINI_MODEL=your-supported-gemini-model
-```
+## Team
 
-- **Resend** sends school-verification codes and password-reset links. Without its settings, codes appear in the Terminal only for local testing.
-- **Gemini** creates listing suggestions from a photo. Without its key, the rest of Hive continues working, but AI analysis is unavailable.
-- Never put these keys inside React files or share them in screenshots.
-
-## Where the current data is stored
-
-During local development, the server saves data in `data/hive.json`. This includes accounts, password hashes, profile details, listings, images, messages, carts, saved items, orders, and search history.
-
-That file is intentionally excluded from GitHub, so publishing this repository does **not** publish your existing local test accounts or private messages. Back up `data/hive.json` before moving computers or making major changes.
-
-## GitHub and launch status
-
-This repository safely stores the application code and makes future development easier. GitHub does **not** host the complete running app by itself.
-
-Before giving the app to public users, Hive should be deployed to a hosting provider and moved from the local JSON file to a hosted database. Real payments and delivery integrations should be added as separate launch work, using approved providers such as Stripe and a delivery partner.
-
-## Project structure
-
-```text
-src/App.tsx       Main React interface and live client behavior
-src/styles.css     Hive visual design and responsive styling
-server.mjs         Server, authentication, storage, email, and Gemini endpoints
-data/hive.json     Local saved app data (private; not committed)
-.env               Private keys and deployment settings (private; not committed)
-.env.example       Safe settings template
-```
-
-## Safety note
-
-Hive is a peer-to-peer marketplace prototype. Users should meet in public places, inspect items before paying, and avoid sharing passwords, verification codes, or other sensitive information.
+- Yiquan Feng — Frontend, backend, product design, UX, database, and APIs
