@@ -2,7 +2,7 @@
 
 Hive is a verified student marketplace for discovering, buying, and selling secondhand items within university communities.
 
-## Live Demo
+## How to run 
 
 Open [Hive Hackathon Demo](https://hive-hackathon-demo.onrender.com).
 
