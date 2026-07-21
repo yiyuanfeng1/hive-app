@@ -162,6 +162,17 @@ const GRAY = "#818181";
 const BG = "#F5F5F5";
 const ERROR = "#9B7C2E";
 
+const homeSearchSuggestions = [
+  "IKEA desk",
+  "Stanley cup",
+  "MacBook Pro",
+  "Calculus textbook",
+  "Study lamp",
+  "Office chair",
+  "Mini fridge",
+  "Bike lock",
+];
+
 const products: Product[] = [
   {
     id: 1,
@@ -949,6 +960,21 @@ function HomeScreen({
   const [scopeMode, setScopeMode] = useState<"my" | "nearby" | "nationwide" | "custom">("my");
   const [scopeOpen, setScopeOpen] = useState(false);
   const [custom, setCustom] = useState("");
+  const [searchSuggestion, setSearchSuggestion] = useState(
+    () => homeSearchSuggestions[Math.floor(Math.random() * homeSearchSuggestions.length)],
+  );
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setSearchSuggestion((current) => {
+        const alternatives = homeSearchSuggestions.filter((suggestion) => suggestion !== current);
+        return alternatives[Math.floor(Math.random() * alternatives.length)];
+      });
+    }, 2600);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
   const schoolKey = (value: string) => {
     const raw = value.toLowerCase().replace(/[^a-z0-9]/g, "");
     const aliases: Record<string, string> = {
@@ -1124,7 +1150,7 @@ function HomeScreen({
           >
             <Search size={17} color={GRAY} />
             <span className="flex-1 text-left text-[11px] text-gray-400 one-line">
-              Search housing, rides, items...
+              Try searching “{searchSuggestion}”
             </span>
             <Mic size={17} color={GRAY} />
           </button>
