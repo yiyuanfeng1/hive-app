@@ -10,7 +10,7 @@ Use this judge-safe demo account:
 
 - Email Address: judge@hive-demo.edu
 - Password: HiveDemo2026!
-
+Please give it a minute to load.
 No installation is needed to review the demo.
 
 ## Features
@@ -58,5 +58,6 @@ The backend session above represents the backend implementation, API integration
 
 ## Team
 
-- Yiyuan Feng — Backend, database, APIs, product design
 - Yiquan Feng — Frontend, UX, product design
+- Yiyuan Feng — Backend, database, APIs, product design
+
