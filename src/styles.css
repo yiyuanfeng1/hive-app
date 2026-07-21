@@ -2,8 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 :root {
-  color: #151515;
-  background: #d6cfc4;
+  color: #111114;
+  background: #f3f2ee;
   font-family: Inter, Arial, sans-serif;
 }
 * {
@@ -603,6 +603,259 @@ button:focus-visible {
 .glass-neutral {
   background: rgba(255, 255, 255, 0.58);
 }
+
+/* White Hive refresh: visual changes only. Data still comes from the live API. */
+.ui-refresh {
+  color: #111114;
+  background: #fff !important;
+  border: 1px solid #e7e7e7;
+  box-shadow: 0 24px 64px rgba(17, 17, 20, 0.14) !important;
+}
+.ui-refresh .glass-nav {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: #e9e9eb;
+  box-shadow: 0 8px 24px rgba(17, 17, 20, 0.1);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+.ui-refresh .nav-circle {
+  background: #f5f5f6;
+  color: #4b4b50;
+}
+.ui-refresh .nav-circle:hover {
+  background: #ececee;
+}
+.ui-refresh .nav-active,
+.ui-refresh .action-button {
+  background: #ffdc32 !important;
+  color: #111114;
+  border-color: #ffdc32;
+  box-shadow: 0 8px 18px rgba(255, 220, 50, 0.28);
+}
+.ui-refresh .action-button {
+  border: 1px solid rgba(17, 17, 20, 0.08);
+}
+.ui-refresh .glass-actionbar {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: #ececef;
+  box-shadow: 0 9px 24px rgba(17, 17, 20, 0.1);
+}
+.ui-refresh .glass-icon-button,
+.ui-refresh .glass-neutral {
+  background: #f6f6f7;
+  border-color: #e9e9eb;
+}
+.ui-refresh .glass-accent {
+  background: #ffdc32;
+}
+.ui-refresh .glass-warm {
+  background: #ffe8a4;
+}
+.ui-refresh .product-card,
+.ui-refresh .checkout-card {
+  background: #fff;
+  border: 1px solid #eeeeef;
+  box-shadow: 0 6px 18px rgba(17, 17, 20, 0.055);
+}
+.ui-refresh .seller-stat,
+.ui-refresh .saved-payment,
+.ui-refresh .chat-tool {
+  background: #f6f6f7;
+  border: 1px solid #ececef;
+}
+.ui-refresh .chat-bubble.mine {
+  background: #ffdc32;
+}
+.ui-refresh .input-shell:focus-within {
+  border-color: #fac515;
+  box-shadow: 0 0 0 3px rgba(250, 197, 21, 0.16);
+  background: #fff;
+}
+.ui-refresh .badge {
+  background: #ffdc32;
+  color: #111114;
+  border: 2px solid #fff;
+}
+.ui-refresh [class*="bg-[#F5F5F5]"],
+.ui-refresh [class*="bg-[#F6F6F6]"],
+.ui-refresh [class*="bg-[#F7F7F7]"] {
+  background-color: #fff !important;
+}
+
+/* Layout system translated from the supplied white Hive screens. */
+.ui-refresh .hive-bottom-nav {
+  height: 76px;
+  padding: 7px 9px;
+  border: 1px solid rgba(255,255,255,.96);
+  background: rgba(255,255,255,.82);
+  box-shadow: 0 12px 34px rgba(17,17,20,.17), inset 0 1px rgba(255,255,255,.95);
+}
+.ui-refresh .hive-nav-circle,
+.ui-refresh .hive-post-nav {
+  width: 54px;
+  height: 54px;
+  background: #fff;
+  color: #777780;
+  border: 1px solid #f0f0f2;
+  box-shadow: 0 5px 16px rgba(17,17,20,.08);
+}
+.ui-refresh .hive-post-nav {
+  background: linear-gradient(145deg,#343438,#111114);
+  color: #fff;
+  border-color: #2b2b2f;
+}
+.ui-refresh .hive-nav-active {
+  min-width: 116px;
+  height: 54px;
+  color: #fff;
+  background: linear-gradient(145deg,#343438,#111114) !important;
+  border: 1px solid #4e4e53;
+  box-shadow: 0 7px 19px rgba(17,17,20,.25), inset 0 1px rgba(255,255,255,.12);
+}
+.ui-refresh .home-header,
+.ui-refresh .messages-screen header,
+.ui-refresh .cart-screen > header {
+  border-radius: 0 0 34px 34px;
+  box-shadow: 0 10px 28px rgba(17,17,20,.07);
+}
+.ui-refresh .home-search {
+  height: 58px;
+  border-radius: 20px;
+  background: #f5f5f7;
+  border: 1.5px solid #d5d7de;
+}
+.ui-refresh .home-category {
+  min-height: 42px;
+  padding: 0 17px;
+  color: #fff;
+  background: #3b3b3e !important;
+  border-color: #535356 !important;
+  font-weight: 700;
+}
+.ui-refresh .home-category.selected {
+  color: #111114;
+  background: linear-gradient(135deg,#ffeb9e,#ffc515) !important;
+  border-color: #ffe8a0 !important;
+}
+.ui-refresh .product-card {
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 12px 25px rgba(17,17,20,.10);
+}
+.ui-refresh .product-card img { border-radius: 0; }
+.ui-refresh .product-card p { letter-spacing: -.15px; }
+.ui-refresh .save-star {
+  background: #c9c9cc;
+  color: #fff;
+  box-shadow: 0 5px 11px rgba(17,17,20,.2);
+}
+.ui-refresh .save-star.saved { background: #ffdb32; color: #926f00; }
+.ui-refresh .cart-screen > header { padding-bottom: 4px; }
+.ui-refresh .cart-item,
+.ui-refresh .coupon-card {
+  border: 1px solid #e9e9eb;
+  border-radius: 27px;
+  box-shadow: 0 12px 27px rgba(17,17,20,.08);
+}
+.ui-refresh .cart-item img { width: 94px; height: 94px; border-radius: 20px; }
+.ui-refresh .qty {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg,#ffed9e,#ffc617);
+  box-shadow: 0 3px 10px rgba(250,197,21,.25);
+}
+.ui-refresh .bill-dark {
+  color: #fff;
+  background: linear-gradient(145deg,#343438,#171719) !important;
+  border: 0;
+  border-radius: 27px;
+  box-shadow: 0 14px 30px rgba(17,17,20,.2);
+}
+.ui-refresh .bill-dark .bill,
+.ui-refresh .bill-dark .bill b,
+.ui-refresh .bill-dark h2 { color: #fff; }
+.ui-refresh .checkout-screen main { padding-bottom: 104px; }
+.ui-refresh .checkout-section {
+  border-radius: 27px;
+  border: 1px solid #e8e8eb;
+  box-shadow: 0 12px 28px rgba(17,17,20,.07);
+}
+.ui-refresh .checkout-section .choice {
+  min-height: 128px;
+  border: 0;
+  background: #3b3b3e;
+  color: #fff;
+}
+.ui-refresh .checkout-section .choice span { color: #d0d0d2; }
+.ui-refresh .checkout-section .choice.chosen { background: #ffecac; color: #171719; }
+.ui-refresh .checkout-section .choice.chosen span { color: #786945; }
+.checkout-demo-note { margin: 7px 0 0; color: #777780; font-size: 10px; line-height: 14px; }
+.ui-refresh .messages-screen header { padding-bottom: 4px; }
+.ui-refresh .messages-screen header .input-shell {
+  height: 56px;
+  border-radius: 20px;
+  border: 2px solid #fac515;
+  box-shadow: 0 0 0 4px rgba(250,197,21,.12);
+}
+.ui-refresh .conversation-card {
+  margin: 10px 14px;
+  width: calc(100% - 28px);
+  border: 1px solid #e9e9eb;
+  border-radius: 28px;
+  box-shadow: 0 10px 24px rgba(17,17,20,.08);
+}
+.ui-refresh .conversation-card:first-child { margin-top: 20px; }
+.ui-refresh .chat-listing {
+  background: linear-gradient(135deg,#ffe688,#ffc51a) !important;
+  border: 0;
+  border-radius: 0 0 32px 32px;
+}
+.ui-refresh .chat-bubble.theirs { color: #fff; background: #343438; }
+.ui-refresh .chat-bubble.mine { color: #111114; background: linear-gradient(135deg,#ffec9f,#ffcc39); }
+.ui-refresh .chat-composer { background: #39393d; border: 0; }
+.ui-refresh .chat-composer .input-shell { background: #fff; border: 3px solid #fac515; }
+.ui-refresh .chat-composer .chat-tool { background: #525257; color: #fff; border: 0; }
+.ui-refresh .chat-composer .chat-tool:last-child { background: linear-gradient(135deg,#ffe998,#b88a2d); color: #171719; }
+.ui-refresh .post-screen .action-button,
+.ui-refresh .post-ai-card {
+  background: linear-gradient(135deg,#ffec9f,#ffc32f) !important;
+}
+.ui-refresh .post-ai-card { border-radius: 25px; box-shadow: 0 12px 27px rgba(250,197,21,.18); }
+.ui-refresh .profile-header {
+  color: #fff;
+  background: linear-gradient(160deg,#4b4545,#171719) !important;
+  padding-bottom: 22px;
+}
+.ui-refresh .profile-header p,
+.ui-refresh .profile-header span { color: rgba(255,255,255,.8) !important; }
+.ui-refresh .profile-header .profile-tag { color: #fff !important; background: rgba(255,255,255,.17); border-color: rgba(255,255,255,.32); }
+.ui-refresh .profile-stats { color: #171719; background: linear-gradient(135deg,#fff0ac,#ffbf17) !important; box-shadow: 0 11px 24px rgba(250,197,21,.23); }
+.ui-refresh .profile-stats span { color: #171719 !important; }
+.ui-refresh .profile-panel { border: 1px solid #e9e9eb; border-radius: 26px; box-shadow: 0 11px 26px rgba(17,17,20,.07); }
+.ui-refresh .checkout-card .input-shell,
+.ui-refresh .coupon-card .input-shell,
+.ui-refresh .profile-screen .input-shell {
+  background: #f5f5f7;
+  border-radius: 16px;
+}
+.ui-refresh .switch.on { background: #fac515; }
+.ui-refresh .setting-row { min-height: 96px; }
+.legal-page { padding-bottom: 28px; }
+.legal-card {
+  padding: 20px;
+  border: 1px solid #e8e8eb;
+  border-radius: 25px;
+  background: #fff;
+  box-shadow: 0 11px 27px rgba(17,17,20,.07);
+  color: #4b4b50;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.legal-card h2 { margin: 0 0 10px; color: #111114; font-size: 17px; font-weight: 800; }
+.legal-card p { margin: 0 0 12px; }
+.legal-card p:last-child { margin-bottom: 0; }
+.legal-card ul { margin: 0; padding-left: 19px; }
+.legal-card li + li { margin-top: 7px; }
 .hero-message {
   background: rgba(255, 255, 255, 0.2);
   color: white;
@@ -952,6 +1205,135 @@ button:focus-visible {
 .screen-in {
   animation: screen-in 0.28s ease both;
 }
+
+/* Account screens use the same bright, rounded visual language as the refreshed app. */
+.auth-screen { background: #fff !important; }
+.auth-screen .auth-card { border-radius: 32px; box-shadow: 0 22px 48px rgba(24, 24, 27, 0.08); }
+.auth-screen .input-shell { border-radius: 20px !important; background: #f2f2f4 !important; }
+.auth-screen .pressable[type="submit"] { background: linear-gradient(110deg, #fff0a5, #ffd14d 52%, #ffc98d) !important; border: 1px solid #fff4bf; border-radius: 17px !important; box-shadow: 0 13px 23px rgba(75, 57, 10, 0.15); color: #151515; font-size: 17px; font-weight: 800; }
+.auth-legal-copy { margin-top: 26px; color: #5f5f67; font-size: 11px; line-height: 1.5; }
+.auth-legal-copy b { display: block; color: #171717; font-size: 13px; margin-bottom: 6px; }
+.auth-legal-copy p { margin: 0 0 12px; }
+.auth-agree { display: flex; gap: 9px; align-items: flex-start; color: #222; font-weight: 600; }
+.auth-agree input { width: 18px; height: 18px; margin-top: 1px; accent-color: #fac515; }
+.auth-agree button { color: #725800; text-decoration: underline; font-weight: 800; }
+
+/* Final alignment with the supplied compact white Hive references. */
+.ui-refresh .home-header { padding-bottom: 13px; }
+.ui-refresh .home-header h1 { font-size: 22px !important; line-height: 1.05; }
+.ui-refresh .home-header .home-search { height: 54px; border-radius: 19px; }
+.ui-refresh .home-header .home-category { min-height: 39px; padding: 0 15px; font-size: 11px; }
+.ui-refresh .home-screen .product-card { border-radius: 22px; box-shadow: 0 9px 20px rgba(17,17,20,.09); }
+.ui-refresh .home-screen .product-card p:first-child { font-size: 13px; }
+.ui-refresh .home-screen .product-card p[style] { font-size: 16px; }
+
+.ui-refresh .post-screen > div:first-of-type h1 { font-size: 22px; }
+.ui-refresh .post-photo-target { height: 320px; border: 0; box-shadow: 0 10px 29px rgba(17,17,20,.07); }
+.ui-refresh .post-photo-target b { font-size: 18px; }
+.ui-refresh .post-photo-target p { font-size: 13px; color: #606068; }
+.ui-refresh .post-library-button { display: none; }
+.ui-refresh .post-ai-card { margin-top: 34px !important; padding: 18px 17px !important; border-radius: 23px !important; }
+.ui-refresh .post-ai-card p:first-child { font-size: 14px; }
+.ui-refresh .post-ai-card p:last-child { color: #25252a; font-size: 12px; line-height: 1.55; }
+.photo-source-overlay { position: absolute; inset: 0; z-index: 70; display: flex; align-items: flex-end; background: rgba(15,15,17,.26); backdrop-filter: blur(4px); }
+.photo-source-sheet { width: 100%; padding: 11px 16px 17px; border-radius: 28px 28px 0 0; background: #fff; box-shadow: 0 -14px 36px rgba(17,17,20,.17); }
+.photo-source-handle { width: 40px; height: 5px; margin: 0 auto 17px; border-radius: 999px; background: #c7c7cc; }
+.photo-source-sheet h2 { margin: 0 0 12px; font-size: 18px; font-weight: 800; }
+.photo-source-sheet button { display: flex; align-items: center; gap: 17px; width: 100%; height: 70px; padding: 0 20px; border-bottom: 1px solid #ececef; background: #fff; color: #151519; font-size: 16px; font-weight: 750; text-align: left; }
+.photo-source-sheet .photo-source-cancel { display: block; height: 60px; margin-top: 15px; border: 0; border-radius: 17px; background: #f1f1f3; text-align: center; }
+
+.ui-refresh .profile-header { padding-bottom: 18px; }
+.ui-refresh .profile-header h1 { font-size: 22px !important; }
+.ui-refresh .profile-header h2 { font-size: 20px !important; }
+.ui-refresh .profile-header p { font-size: 11px !important; }
+.ui-refresh .profile-header .profile-stats { border-radius: 21px; padding-top: 13px; padding-bottom: 13px; }
+.ui-refresh .profile-panel { border-radius: 22px; }
+.ui-refresh .profile-screen main { padding: 13px 14px 98px; }
+.ui-refresh .profile-screen main .profile-panel h2 { font-size: 17px; }
+
+.ui-refresh .edit-profile-screen { background: #f7f7f8 !important; }
+.ui-refresh .edit-profile-header { border-radius: 0 0 28px 28px; box-shadow: 0 7px 20px rgba(17,17,20,.05); }
+.ui-refresh .edit-profile-header h1 { font-size: 22px !important; }
+.ui-refresh .edit-profile-back-button { border-radius: 50%; background: #d0d0d2; }
+.ui-refresh .edit-profile-main { max-width: 368px; margin: 0 auto; }
+.ui-refresh .edit-profile-card { margin-top: 18px; padding: 20px; border-radius: 28px; background: #fff; box-shadow: 0 12px 28px rgba(17,17,20,.07); }
+.ui-refresh .edit-profile-card .input-shell { background: #f3f3f5 !important; border-radius: 17px !important; }
+.ui-refresh .edit-profile-card .input-core { font-size: 14px; }
+.ui-refresh .edit-profile-card textarea.input-core { min-height: 102px; }
+.ui-refresh .edit-profile-grid > label > span { display: block; font-size: 10px; letter-spacing: .02em; color: #8d93a1; }
+.ui-refresh .edit-profile-card .action-button { margin-top: 3px; height: 54px !important; border-radius: 17px !important; font-size: 16px; }
+
+.ui-refresh .legal-card { padding: 17px; border-radius: 21px; font-size: 12px; line-height: 1.55; }
+.ui-refresh .legal-card h2 { font-size: 16px; }
+.ui-refresh .legal-card li + li { margin-top: 5px; }
+
+/* Live-data UI bridge: matches the supplied white / charcoal / gold design
+   while leaving the React components and API-backed data untouched. */
+.ui-refresh {
+  background: #f7f7f8;
+  color: #17171b;
+}
+.ui-refresh .auth-page,
+.ui-refresh .home-chrome,
+.ui-refresh .cart-page,
+.ui-refresh .checkout-page,
+.ui-refresh .messages-page,
+.ui-refresh .chat-page,
+.ui-refresh .post-page,
+.ui-refresh .profile-page,
+.ui-refresh .edit-profile-page,
+.ui-refresh .simple-page { background: #f7f7f8 !important; }
+.ui-refresh .auth-page { background: #fff !important; }
+.ui-refresh .auth-page .auth-card,
+.ui-refresh .edit-profile-card,
+.ui-refresh .profile-panel,
+.ui-refresh .checkout-card,
+.ui-refresh .cart-item,
+.ui-refresh .coupon-card,
+.ui-refresh .conversation-card,
+.ui-refresh .simple-page main > .bg-white,
+.ui-refresh .simple-page main > section { border: 1px solid rgba(18,18,20,.07); box-shadow: 0 14px 32px rgba(18,18,20,.065); }
+.ui-refresh .home-header-liquid,
+.ui-refresh .cart-header-liquid,
+.ui-refresh .checkout-header-liquid,
+.ui-refresh .messages-header-liquid,
+.ui-refresh .chat-header-liquid,
+.ui-refresh .simple-header-liquid,
+.ui-refresh .edit-profile-header { border-radius: 0 0 30px 30px; box-shadow: 0 10px 28px rgba(18,18,20,.055); }
+.ui-refresh .home-header-liquid { padding-bottom: 15px; }
+.ui-refresh .messages-header-liquid { border-radius: 0 0 28px 28px; }
+.ui-refresh .cart-header-liquid h1,
+.ui-refresh .messages-header-liquid h1,
+.ui-refresh .profile-header-material h1 { letter-spacing: -.035em; }
+.ui-refresh .home-screen .home-search,
+.ui-refresh .messages-screen .input-shell { border: 1px solid #d7d9df; box-shadow: 0 0 0 4px rgba(250,197,21,.14); }
+.ui-refresh .home-screen .home-category { background: #424244; border: 1px solid rgba(255,255,255,.32); color: #fff; }
+.ui-refresh .home-screen .home-category.active,
+.ui-refresh .home-screen .home-category.selected { background: linear-gradient(135deg,#ffec92,#ffd13b); color: #191919; border-color: #ffe9a0; }
+.ui-refresh .post-page { background: #fff !important; }
+.ui-refresh .post-ai-card { background: linear-gradient(120deg,#fff3ad,#ffc13c) !important; border: 1px solid #ffe28a; box-shadow: 0 12px 28px rgba(117,84,6,.14); }
+.ui-refresh .post-ai-card p:last-child { color: #202024 !important; }
+.ui-refresh .profile-page { background: radial-gradient(circle at 50% 0,#5b5757 0,#242224 42%,#f7f7f8 42%) !important; }
+.ui-refresh .profile-header-material { color: #fff; background: transparent !important; }
+.ui-refresh .profile-header-material p { color: rgba(255,255,255,.83) !important; }
+.ui-refresh .profile-header-material .profile-tag { background: rgba(255,255,255,.17); border-color: rgba(255,255,255,.3); color: #fff; }
+.ui-refresh .profile-header-material .profile-stats { background: linear-gradient(110deg,#fff0a4,#ffc62a) !important; color: #171719; box-shadow: 0 14px 28px rgba(0,0,0,.18); }
+.ui-refresh .profile-page main { border-radius: 32px 32px 0 0; background: #f7f7f8; }
+.ui-refresh .profile-page .profile-panel { background: #fff; }
+.ui-refresh .cart-page .bill-dark { background: linear-gradient(145deg,#333235,#171719) !important; color: #fff; }
+.ui-refresh .cart-page .bill-dark .bill { color: #e3e3e5; border-color: rgba(255,255,255,.55); }
+.ui-refresh .cart-page .bill-dark .bill.text-black { color: #fff !important; }
+.ui-refresh .checkout-page .choice { background: #424244; color: #fff; }
+.ui-refresh .checkout-page .choice span { color: rgba(255,255,255,.68); }
+.ui-refresh .checkout-page .choice.chosen { background: #ffedab; color: #191919; }
+.ui-refresh .checkout-page .choice.chosen span { color: #736546; }
+.ui-refresh .chat-page .chat-listing { background: linear-gradient(105deg,#fff1a8,#ffd04b); }
+.ui-refresh .chat-page .chat-bubble.theirs { background: #353538; color: #fff; }
+.ui-refresh .chat-page .chat-bubble.mine { background: linear-gradient(110deg,#fff0a5,#ffd04b); color: #171719; }
+.ui-refresh .glass-checkout-bar,
+.ui-refresh .chat-composer { background: rgba(255,255,255,.93) !important; backdrop-filter: blur(18px); box-shadow: 0 -8px 24px rgba(20,20,25,.08); }
+.ui-refresh .simple-page .product-card { box-shadow: 0 12px 26px rgba(17,17,20,.08); }
+.ui-refresh .simple-page .product-card img { border-radius: 20px 20px 0 0; }
 @media (max-width: 520px) {
   :root {
     background: #f5f5f5;
