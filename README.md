@@ -43,6 +43,14 @@ We made the final product, engineering, UX, and visual-design decisions while us
 
 > The current in-app listing analysis uses Gemini as the server-side AI provider. It suggests a draft only; users review and edit every listing before publishing.
 
+## Codex Session ID
+
+Primary Codex Session ID submitted for this project (Backend):
+
+`019f6cfd-b969-7db0-8f55-e9e647bbf584`
+
+This Session ID corresponds to the primary backend development thread, where the majority of the backend implementation, API integration, database development, and application integration work was completed. Additional Codex-assisted development also took place in separate team member sessions for frontend implementation and UI development, as described throughout this README.
+
 ## Collaboration with Codex
 
 Codex was used throughout the project as a hands-on coding collaborator. It accelerated the workflow by helping translate product requirements and mobile-screen designs into working React components, connect those components to the Node server, and test that the complete application still built correctly after each change.
