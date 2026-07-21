@@ -34,6 +34,56 @@ const normEmail = (x) => String(x || "").trim().toLowerCase();
 const isEdu = (x) => /^[^\s@]+@[^\s@]+\.edu$/i.test(x);
 const passHash = (v, salt = crypto.randomBytes(16).toString("hex")) => `${salt}:${crypto.scryptSync(v, salt, 64).toString("hex")}`;
 const validPass = (v, saved) => { const [salt] = saved.split(":"); return crypto.timingSafeEqual(Buffer.from(passHash(v, salt)), Buffer.from(saved)); };
+
+// Render can enable this with DEMO_MODE=true. It creates only generic sample
+// accounts and listings for evaluators; it never imports a developer's local data.
+function seedJudgeDemo() {
+  if (process.env.DEMO_MODE !== "true") return;
+  const db = readDb();
+  const judgeEmail = "judge@hive-demo.edu";
+  const sellerEmail = "seller@hive-demo.edu";
+  let changed = false;
+  let seller = db.users.find((user) => user.email === sellerEmail);
+
+  if (!db.users.some((user) => user.email === judgeEmail)) {
+    db.users.push({
+      id: newId(),
+      email: judgeEmail,
+      passwordHash: passHash("HiveDemo2026!"),
+      verified: true,
+      createdAt: new Date().toISOString(),
+      profile: { name: "Hive Judge", school: "Demo University", grad: "Evaluator", campus: "Demo Campus", avatar: "", gender: "", age: "", sign: "", interests: "Campus marketplace", bio: "A safe demo-only account with fictional content." },
+    });
+    changed = true;
+  }
+
+  if (!seller) {
+    seller = {
+      id: newId(),
+      email: sellerEmail,
+      passwordHash: passHash("SellerDemo2026!"),
+      verified: true,
+      createdAt: new Date().toISOString(),
+      profile: { name: "Demo Seller", school: "Demo University", grad: "Student", campus: "Demo Campus", avatar: "", gender: "", age: "", sign: "", interests: "Secondhand goods", bio: "A fictional seller used only for the public Hive demo." },
+    };
+    db.users.push(seller);
+    changed = true;
+  }
+
+  if (!db.listings.some((listing) => listing.demoSeed)) {
+    const image = (label, color) => `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><rect width="800" height="600" fill="${color}"/><circle cx="400" cy="240" r="110" fill="white" fill-opacity=".92"/><path d="M345 240h110M400 185v110" stroke="${color}" stroke-width="26" stroke-linecap="round"/><text x="400" y="470" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="38" font-weight="700">${label}</text></svg>`)}`;
+    const now = new Date().toISOString();
+    db.listings.push(
+      { id: newId(), demoSeed: true, sellerId: seller.id, seller: "Demo Seller", sellerAvatar: "", sellerRating: 5, title: "Campus Desk Lamp", description: "Fictional demo listing for evaluating the Hive marketplace.", price: 20, category: "Furniture & Home", condition: "Good", images: [image("Desk Lamp", "#4b5563")], status: "active", createdAt: now, location: "Demo Campus", school: "Demo University", campus: "Demo Campus" },
+      { id: newId(), demoSeed: true, sellerId: seller.id, seller: "Demo Seller", sellerAvatar: "", sellerRating: 5, title: "Intro Biology Textbook", description: "Fictional demo listing for evaluating search, saved items, and checkout.", price: 15, category: "School Supplies", condition: "Used", images: [image("Textbook", "#2563eb")], status: "active", createdAt: now, location: "Demo Campus", school: "Demo University", campus: "Demo Campus" },
+      { id: newId(), demoSeed: true, sellerId: seller.id, seller: "Demo Seller", sellerAvatar: "", sellerRating: 5, title: "Study Chair", description: "Fictional demo listing for evaluating a safe campus marketplace flow.", price: 25, category: "Furniture & Home", condition: "Good", images: [image("Study Chair", "#15803d")], status: "active", createdAt: now, location: "Demo Campus", school: "Demo University", campus: "Demo Campus" },
+    );
+    changed = true;
+  }
+
+  if (changed) writeDb(db);
+}
+seedJudgeDemo();
 const codeHash = (email, code) => crypto.createHash("sha256").update(`${email}:${code}:${secret}`).digest("hex");
 const publicUser = (u) => ({ id: u.id, email: u.email, verified: u.verified, profile: u.profile });
 const respond = (res, status, body, headers = {}) => res.status(status).set(headers).json(body);
